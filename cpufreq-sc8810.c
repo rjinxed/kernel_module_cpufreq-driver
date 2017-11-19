@@ -57,7 +57,7 @@
 #define ARMVOLT_MIN  (650 * 1000)
 
 
-#define FREQ_TABLE_SIZE 	(11)
+#define FREQ_TABLE_SIZE 	(10)
 /* overly estimated value of 10ms */
 #define TRANSITION_LATENCY	(10 * 1000 * 1000)
 
@@ -77,7 +77,7 @@ unsigned long boot_time,trans_time;
 
 /* just for initalization, these will be calculated from the frequency table */
 unsigned int freq_min_limit = 600000;
-unsigned int freq_max_limit = 1000000;
+unsigned int freq_max_limit = 1300000;
 
 struct cpufreq_conf {
 	struct clk		*clk;
@@ -93,36 +93,30 @@ struct cpufreq_table_data {
 };
 
 enum clocking_levels {
-	OC3,OC2,OC1,	/* over clock */
+	OC2,OC1,	/* over clock */
 	NOC, UC0=NOC, OC0=NOC,	/* no over or under clock */
-	UC1, UC2, UC3, UC4,	/* under clock */
-	MAX_CL=OC3,MIN_CL=UC4,
+	UC1, UC2,	/* under clock */
+	MAX_CL=OC2,MIN_CL=UC2,
 	EC, 			/* end of clocking */
 };
 
 static struct cpufreq_table_data sc8810_cpufreq_table_data = {
 	/* multiplier should be a multiple of 4 to allow efficient scaling */
 	.freq_tbl = {		/* M*25 */
-		{OC3, 1250000},	/*  50  */
-		{OC2, 1200000},	/*  48  */
-		{OC1, 1100000},	/*  44  */
+		{OC2, 1300000},	/*  52  */
+		{OC1, 1200000},	/*  48  */
 		{NOC, 1000000},	/*  40  */
-		{UC1, 900000},  /*  36  */
-		{UC2, 800000},  /*  32  */
-		{UC3, 700000},  /*  28  */
-		{UC4, 600000},  /*  24  */
+		{UC1, 800000},  /*  32  */
+		{UC2, 600000},  /*  24  */
 		{EC, CPUFREQ_TABLE_END},
 	},
 	/* 50mV steps */
 	.vdduv_tbl = {
-	[OC3] =	975000,
-	[OC2] =	950000,
-	[OC1] =	900000,
-	[NOC] =	850000,
-	[UC1] =	800000,
-	[UC2] =	750000,
-	[UC3] =	700000,
-	[UC4] =	650000,
+	[OC2] =	800000,
+	[OC1] =	750000,
+	[NOC] =	650000,
+	[UC1] =	650000,
+	[UC2] =	650000,
 	[EC] =	1100000,
 	},
 };
