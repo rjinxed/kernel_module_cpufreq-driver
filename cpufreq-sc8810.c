@@ -112,11 +112,11 @@ static struct cpufreq_table_data sc8810_cpufreq_table_data = {
 	},
 	/* 50mV steps */
 	.vdduv_tbl = {
-	[OC2] =	800000,
-	[OC1] =	750000,
+	[OC2] =	725000,
+	[OC1] =	700000,
 	[NOC] =	650000,
-	[UC1] =	650000,
-	[UC2] =	650000,
+	[UC1] =	550000,
+	[UC2] =	500000,
 	[EC] =	1100000,
 	},
 };
