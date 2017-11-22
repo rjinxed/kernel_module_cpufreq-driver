@@ -115,8 +115,8 @@ static struct cpufreq_table_data sc8810_cpufreq_table_data = {
 	[OC2] =	715000,
 	[OC1] =	700000,
 	[NOC] =	650000,
-	[UC1] =	550000,
-	[UC2] =	500000,
+	[UC1] =	600000,
+	[UC2] =	550000,
 	[EC] =	1100000,
 	},
 };
