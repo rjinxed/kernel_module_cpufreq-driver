@@ -77,7 +77,7 @@ unsigned long boot_time,trans_time;
 
 /* just for initalization, these will be calculated from the frequency table */
 unsigned int freq_min_limit = 600000;
-unsigned int freq_max_limit = 1300000;
+unsigned int freq_max_limit = 1250000;
 
 struct cpufreq_conf {
 	struct clk		*clk;
@@ -103,7 +103,7 @@ enum clocking_levels {
 static struct cpufreq_table_data sc8810_cpufreq_table_data = {
 	/* multiplier should be a multiple of 4 to allow efficient scaling */
 	.freq_tbl = {		/* M*25 */
-		{OC2, 1300000},	/*  52  */
+		{OC2, 1250000},	/*  50  */
 		{OC1, 1200000},	/*  48  */
 		{NOC, 1000000},	/*  40  */
 		{UC1, 800000},  /*  32  */
@@ -112,7 +112,7 @@ static struct cpufreq_table_data sc8810_cpufreq_table_data = {
 	},
 	/* 50mV steps */
 	.vdduv_tbl = {
-	[OC2] =	725000,
+	[OC2] =	715000,
 	[OC1] =	700000,
 	[NOC] =	650000,
 	[UC1] =	550000,
